@@ -92,7 +92,7 @@ while 1:
         if sensorID==3:     # sensor ID for the eccelerometer
             xtemp, ytemp, ztemp = float(data[2]), float(data[3]), float(data[4])
 # ---- draw (x,y)
-
+#            print "Hello"
             vv = Arrow3D([0,xtemp],[0,ytemp],[0,ztemp], mutation_scale=20, lw=2, arrowstyle="-|>", color="m")
             v1 = Arrow3D([0,xtemp],[0,0],[0,0], mutation_scale=20, lw=2, arrowstyle="-|>", color="b")
             v2 = Arrow3D([0,0],[0,ytemp],[0,0], mutation_scale=20, lw=2, arrowstyle="-|>", color="g")
@@ -104,6 +104,7 @@ while 1:
             iz = ax.add_artist(v3)
 
         plt.draw()
+        plt.pause(0.001)
         iv.remove()
         ix.remove()
         iy.remove()
@@ -112,9 +113,9 @@ while 1:
 # SAVE TO FILE
 #            print >> open("prova.txt","a"), temp, ax, ay, az
 #            print temp, ax, ay, az
-# FLUSH TO STERRa
-        stderr.write("\r (ax,ay,az) = (%s,%s,%s) m/s^2" % (xtemp, ytemp, ztemp) )
-        stderr.flush()
+# FLUSH TO STERR
+#        stderr.write("\r (ax,ay,az) = (%s,%s,%s) m/s^2" % (xtemp, ytemp, ztemp) )
+#        stderr.flush()
 
     except (KeyboardInterrupt, SystemExit):
         raise
